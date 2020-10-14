@@ -207,9 +207,6 @@ if(CATKIN_ENABLE_TESTING)
   if(TARGET geometry-test)
     target_link_libraries(geometry-test ${catkin_LIBRARIES} geometry_library)
   endif()
-  #find_package(rostest REQUIRED)
-  #add_rostest_gtest(geometry-test launch/gtest.test test/unit_testing_tutorial_test.cpp)
-  #target_link_libraries(geometry-test ${catkin_LIBRARIES} geometry_library)
 endif(CATKIN_ENABLE_TESTING)
 
 ## Add folders to be run by python nosetests
