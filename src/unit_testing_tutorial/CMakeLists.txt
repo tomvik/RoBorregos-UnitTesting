@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(unit_testing_tutorial)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -103,10 +103,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES unit_testing_tutorial
-#  CATKIN_DEPENDS roscpp rospy std_msgs
-#  DEPENDS system_lib
+ INCLUDE_DIRS include
+ LIBRARIES unit_testing_tutorial
+ CATKIN_DEPENDS roscpp rospy std_msgs
+ DEPENDS system_lib
 )
 
 ###########
@@ -116,14 +116,15 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
-  ${catkin_INCLUDE_DIRS}
+ include
+ ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/unit_testing_tutorial.cpp
-# )
+add_library(geometry_library
+  src/geometry.cpp
+)
+target_link_libraries(geometry_library ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -133,7 +134,11 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/unit_testing_tutorial_node.cpp)
+
+add_executable(${PROJECT_NAME}_node
+    src/${PROJECT_NAME}_node.cpp)
+
+target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES} geometry_library)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -197,10 +202,15 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_unit_testing_tutorial.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
+if(CATKIN_ENABLE_TESTING)
+  catkin_add_gtest(geometry-test test/unit_testing_tutorial_test.cpp)
+  if(TARGET geometry-test)
+    target_link_libraries(geometry-test ${catkin_LIBRARIES} geometry_library)
+  endif()
+  #find_package(rostest REQUIRED)
+  #add_rostest_gtest(geometry-test launch/gtest.test test/unit_testing_tutorial_test.cpp)
+  #target_link_libraries(geometry-test ${catkin_LIBRARIES} geometry_library)
+endif(CATKIN_ENABLE_TESTING)
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)

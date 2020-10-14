@@ -14,7 +14,6 @@
             "includePath": [
                 "/media/Data/lugol/Desktop/RoBorregos/Lectures/UnitTest/devel/include/**",
                 "/opt/ros/melodic/include/**",
-                "/media/Data/catkin_ws/devel/include/**",
                 "/usr/include/**"
             ],
             "name": "ROS",
