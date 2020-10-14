@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/media/Data/lugol/Desktop/RoBorregos/Robocup-Home/catkin_home/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/media/Data/catkin_ws/devel/include/**",
+        "/media/Data/lugol/Desktop/RoBorregos/Robocup-Home/catkin_home/src/arm_vision/include/**",
+        "/media/Data/catkin_ws/src/ros_basics_tutorials/include/**",
+        "/media/Data/catkin_ws/src/ros_essentials_cpp/include/**",
+        "/media/Data/catkin_ws/src/rumba_turtle/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ]
+}

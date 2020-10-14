@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/media/Data/lugol/Desktop/RoBorregos/Robocup-Home/catkin_home/devel/lib/python2.7/dist-packages",
+        "/media/Data/catkin_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/media/Data/lugol/Desktop/RoBorregos/Robocup-Home/catkin_home/devel/lib/python2.7/dist-packages",
+        "/media/Data/catkin_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ]
+}
