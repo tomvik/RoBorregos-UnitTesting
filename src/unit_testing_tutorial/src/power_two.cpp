@@ -35,10 +35,17 @@ bool isDigit(const char input_digit, int& digit) {
 std::string getPowerTwoMessage(const int digit) {
     const int power_two = digit * digit;
 
-    const std::string digit_string = "" + ('0' + digit);
+    const char char_digit = digit + '0';
+    const char power_two_first_digit = power_two / 10 + '0';
+    const char power_two_second_digit = power_two % 10 + '0';
 
-    std::string power_two_string = "" + ('0' + (power_two / 10));
-    power_two_string += ('0' + (power_two % 10));
+    std::string digit_string = "";
+    digit_string += char_digit;
+
+    std::string power_two_string = "";
+
+    power_two_string += power_two_first_digit;
+    power_two_string += power_two_second_digit;
     return "Your digit was: " + digit_string + " and " + digit_string + "^2 = " + power_two_string;
 }
 
