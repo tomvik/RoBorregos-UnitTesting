@@ -27,7 +27,7 @@ TEST(GeometryTest, moreThan100) {
 // Run all the tests that were declared with TEST()
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
-    ros::init(argc, argv, "unit_testing_tutorial_test");
+    ros::init(argc, argv, "geometry_test");
     ros::NodeHandle nh;
     return RUN_ALL_TESTS();
 }

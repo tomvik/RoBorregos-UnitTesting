@@ -126,6 +126,11 @@ add_library(geometry_library
 )
 target_link_libraries(geometry_library ${catkin_LIBRARIES})
 
+add_library(power_two_library
+  src/power_two.cpp
+)
+target_link_libraries(power_two_library ${catkin_LIBRARIES})
+
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
@@ -138,7 +143,7 @@ target_link_libraries(geometry_library ${catkin_LIBRARIES})
 add_executable(${PROJECT_NAME}_node
     src/${PROJECT_NAME}_node.cpp)
 
-target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES} geometry_library)
+target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES} geometry_library power_two_library)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -203,9 +208,13 @@ target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES} geometry_library)
 
 ## Add gtest based cpp test target and link libraries
 if(CATKIN_ENABLE_TESTING)
-  catkin_add_gtest(geometry-test test/unit_testing_tutorial_test.cpp)
-  if(TARGET geometry-test)
-    target_link_libraries(geometry-test ${catkin_LIBRARIES} geometry_library)
+  #catkin_add_gtest(geometry-test test/geometry_test.cpp)
+  #if(TARGET geometry-test)
+  #  target_link_libraries(geometry-test ${catkin_LIBRARIES} geometry_library)
+  #endif()
+  catkin_add_gtest(power_two-test test/power_two_test.cpp)
+  if(TARGET power_two-test)
+    target_link_libraries(power_two-test ${catkin_LIBRARIES} power_two_library)
   endif()
 endif(CATKIN_ENABLE_TESTING)
 

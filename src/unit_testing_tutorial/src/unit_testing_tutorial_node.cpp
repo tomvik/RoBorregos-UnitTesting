@@ -1,7 +1,15 @@
 #include <iostream>
-#include "ros/ros.h"
-#include "geometry/geometry.h"
 
+#include "geometry/geometry.h"
+#include "power_two/power_two.h"
+#include "ros/ros.h"
+
+int main(int argc, char** argv) {
+    return powerTwo::calculateAndPrintPowerTwo(argc, argv);
+}
+
+///////////////////////////////////////////////////////////////
+/*
 int main(int argc, char** argv) {
     ros::init(argc, argv, "unit_testing_tutorial_node");
 
@@ -11,3 +19,5 @@ int main(int argc, char** argv) {
     ROS_INFO("[aFunction]: %d", geometry::aFunction(1000));
     return 0;
 }
+*/
+/////////////////////////////////////////////////////////////
