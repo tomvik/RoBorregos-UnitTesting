@@ -20,9 +20,9 @@
 
     // RoBorregos C++ Linter.
     // windows:
-    // "cpplint.cpplintPath": "C:\\Python27\\Scripts\\cpplint.exe",
+    "cpplint.cpplintPath": "C:\\Python27\\Scripts\\cpplint.exe",
     // linux:
-    "cpplint.cpplintPath": "/home/tomas/.local/lib/python2.7/site-packages/cpplint.py",
+    // "cpplint.cpplintPath": "/home/tomas/.local/lib/python2.7/site-packages/cpplint.py",
     "cpplint.lineLength" : 100,
     "cpplint.filters": [
         "-runtime/references",

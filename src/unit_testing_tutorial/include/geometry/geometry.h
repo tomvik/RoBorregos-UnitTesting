@@ -14,6 +14,7 @@ geometry_msgs::Twist getTwist(const geometry_msgs::Vector3& linear_vector,
 geometry_msgs::Twist getTwist(const double linear_x = 0, const double linear_y = 0,
                               const double linear_z = 0, const double angular_x = 0,
                               const double angular_y = 0, const double angular_z = 0);
+
 int aFunction(const int number);
 
 };  // namespace geometry
