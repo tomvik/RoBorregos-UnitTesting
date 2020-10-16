@@ -102,11 +102,14 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
+
+#find_package(catkin REQUIRED COMPONENTS roscpp geometry_msgs turtlesim)
+
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES rumba_turtle
-  CATKIN_DEPENDS roscpp rospy std_msgs
-  DEPENDS system_lib
+  CATKIN_DEPENDS roscpp rospy std_msgs turtlesim
+  #DEPENDS system_lib
 )
 
 ###########
@@ -117,7 +120,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
  include
-  ${catkin_INCLUDE_DIRS}
+ ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -207,12 +210,13 @@ target_link_libraries (${PROJECT_NAME}_node
 
 ## Add gtest based cpp test target and link libraries
 if(CATKIN_ENABLE_TESTING)
-catkin_add_gtest(rumba_turtle-test test/rumba_turtle_test.cpp
-src/${PROJECT_NAME}/geometry.cpp
-src/${PROJECT_NAME}/movement.cpp)
-if(TARGET rumba_turtle-test)
-  target_link_libraries(rumba_turtle-test ${catkin_LIBRARIES})
-endif()
+  find_package(rostest REQUIRED)
+  add_rostest_gtest(rumba-turtle-test launch/rumba_turtle_test.launch test/rumba_turtle_test.cpp
+    src/${PROJECT_NAME}/geometry.cpp
+    src/${PROJECT_NAME}/movement.cpp)
+  if(TARGET rumba-turtle-test)
+    target_link_libraries(rumba-turtle-test ${catkin_LIBRARIES})
+  endif()
 endif(CATKIN_ENABLE_TESTING)
 
 ## Add folders to be run by python nosetests
