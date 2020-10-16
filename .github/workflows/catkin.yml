@@ -22,6 +22,6 @@ jobs:
     - run: catkin_make_isolated
     - run: |
         catkin_make_isolated --catkin-make-args run_tests
-        ./check_tests.sh
+        sudo ./check_tests.sh
     env:
       QT_QPA_PLATFORM: offscreen
