@@ -56,7 +56,7 @@ TEST_F(PowerTwoTest, isOneArgument_ExactlyTwo) {
     char *argv[] = {"programName", "9"};
     int argc = sizeof(argv) / sizeof(argv[0]);
     std::string string_argument = "";
-    EXPECT_EQ(powerTwo::isOneArgument(argc, argv, string_argument), true);
+    EXPECT_TRUE(powerTwo::isOneArgument(argc, argv, string_argument));
     EXPECT_EQ(string_argument, "9");
 }
 
@@ -66,7 +66,7 @@ TEST_F(PowerTwoTest, isOneCharacter_LessThanOne) {
     std::string string_argument = "";
     char input = 0;
 
-    EXPECT_EQ(powerTwo::isOneCharacter(string_argument, input), false);
+    EXPECT_FALSE(powerTwo::isOneCharacter(string_argument, input));
     EXPECT_EQ(input, 0);
 }
 

@@ -208,10 +208,10 @@ target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES} geometry_library 
 
 ## Add gtest based cpp test target and link libraries
 if(CATKIN_ENABLE_TESTING)
-  #catkin_add_gtest(geometry-test test/geometry_test.cpp)
-  #if(TARGET geometry-test)
-  #  target_link_libraries(geometry-test ${catkin_LIBRARIES} geometry_library)
-  #endif()
+  catkin_add_gtest(geometry-test test/geometry_test.cpp)
+  if(TARGET geometry-test)
+    target_link_libraries(geometry-test ${catkin_LIBRARIES} geometry_library)
+  endif()
   catkin_add_gtest(power_two-test test/power_two_test.cpp)
   if(TARGET power_two-test)
     target_link_libraries(power_two-test ${catkin_LIBRARIES} power_two_library)
