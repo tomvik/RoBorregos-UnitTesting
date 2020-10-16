@@ -21,7 +21,7 @@ jobs:
         workspace: '$GITHUB_WORKSPACE'
     - run: catkin_make_isolated
     - run: |
-      echo $QT_QPA_PLATFORM
-      catkin_make_isolated --catkin-make-args run_tests
+        echo $QT_QPA_PLATFORM
+        catkin_make_isolated --catkin-make-args run_tests
     - env:
       QT_QPA_PLATFORM: offscreen
