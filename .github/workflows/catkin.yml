@@ -20,3 +20,4 @@ jobs:
         ros-version: 'melodic'
         workspace: '$GITHUB_WORKSPACE'
     - run: catkin_make_isolated
+    - run: catkin_make run_tests
