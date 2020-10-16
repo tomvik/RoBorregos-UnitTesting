@@ -210,12 +210,13 @@ target_link_libraries (${PROJECT_NAME}_node
 
 ## Add gtest based cpp test target and link libraries
 if(CATKIN_ENABLE_TESTING)
-catkin_add_gtest(rumba_turtle-test test/rumba_turtle_test.cpp
-src/${PROJECT_NAME}/geometry.cpp
-src/${PROJECT_NAME}/movement.cpp)
-if(TARGET rumba_turtle-test)
-  target_link_libraries(rumba_turtle-test ${catkin_LIBRARIES})
-endif()
+  find_package(rostest REQUIRED)
+  add_rostest_gtest(rumba-turtle-test launch/rumba_turtle_test.launch test/rumba_turtle_test.cpp
+    src/${PROJECT_NAME}/geometry.cpp
+    src/${PROJECT_NAME}/movement.cpp)
+  if(TARGET rumba-turtle-test)
+    target_link_libraries(rumba-turtle-test ${catkin_LIBRARIES})
+  endif()
 endif(CATKIN_ENABLE_TESTING)
 
 ## Add folders to be run by python nosetests
