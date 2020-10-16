@@ -57,6 +57,9 @@ TEST_F(RumbaTurtleTest, GoToGoal) {
     EXPECT_THAT(real_turtle_pose.y,
                 ::testing::AllOf(::testing::Ge(goal_pose.y - distance_tolerance),
                                  ::testing::Le(goal_pose.y + distance_tolerance)));
+    EXPECT_THAT(real_turtle_pose.y,
+                ::testing::AllOf(::testing::Ge(0),
+                                 ::testing::Le(1)));
 }
 
 int main(int argc, char** argv) {
