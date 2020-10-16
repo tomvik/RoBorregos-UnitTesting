@@ -102,11 +102,14 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
+
+#find_package(catkin REQUIRED COMPONENTS roscpp geometry_msgs turtlesim)
+
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES rumba_turtle
-  CATKIN_DEPENDS roscpp rospy std_msgs
-  DEPENDS system_lib
+  CATKIN_DEPENDS roscpp rospy std_msgs turtlesim
+  #DEPENDS system_lib
 )
 
 ###########
@@ -117,7 +120,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
  include
-  ${catkin_INCLUDE_DIRS}
+ ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
