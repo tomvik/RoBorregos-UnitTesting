@@ -23,5 +23,5 @@ jobs:
     - run: |
         echo $QT_QPA_PLATFORM
         catkin_make_isolated --catkin-make-args run_tests
-    - env:
+    env:
       QT_QPA_PLATFORM: offscreen
