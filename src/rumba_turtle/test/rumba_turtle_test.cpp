@@ -42,6 +42,21 @@ TEST_F(RumbaTurtleTest, GoToGoal) {
     EXPECT_THAT(real_turtle_pose.x,
                 ::testing::AllOf(::testing::Ge(goal_pose.x - distance_tolerance),
                                  ::testing::Le(goal_pose.x + distance_tolerance)));
+    EXPECT_THAT(real_turtle_pose.y,
+                ::testing::AllOf(::testing::Ge(goal_pose.y - distance_tolerance),
+                                 ::testing::Le(goal_pose.y + distance_tolerance)));
+
+
+    goal_pose.x = 9;
+    goal_pose.y = 9;
+    goal_pose.theta = 0;
+    movement::goToGoal(pub, goal_pose, distance_tolerance, loop_frequency);
+    EXPECT_THAT(real_turtle_pose.x,
+                ::testing::AllOf(::testing::Ge(goal_pose.x - distance_tolerance),
+                                 ::testing::Le(goal_pose.x + distance_tolerance)));
+    EXPECT_THAT(real_turtle_pose.y,
+                ::testing::AllOf(::testing::Ge(goal_pose.y - distance_tolerance),
+                                 ::testing::Le(goal_pose.y + distance_tolerance)));
 }
 
 int main(int argc, char** argv) {
