@@ -1,0 +1,6 @@
+<launch>
+	<group ns="turtlesim_test">
+		<node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+	</group>
+	<test test-name="Unit-Tests" pkg="rumba_turtle" type="rumba-turtle-test" name="RumbaTurtleTest"/>
+</launch>
