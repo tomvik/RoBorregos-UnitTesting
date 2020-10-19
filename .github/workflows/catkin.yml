@@ -20,4 +20,9 @@ jobs:
         ros-version: 'melodic'
         workspace: '$GITHUB_WORKSPACE'
     - run: catkin_make_isolated
-    - run: catkin_make_isolated --catkin-make-args run_tests
+    - run: |
+        catkin_make_isolated --catkin-make-args run_tests
+        chmod +x ./check_test_result.sh
+        ./check_test_result.sh
+    env:
+      QT_QPA_PLATFORM: offscreen
