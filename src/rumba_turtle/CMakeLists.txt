@@ -207,10 +207,13 @@ target_link_libraries (${PROJECT_NAME}_node
 #############
 ## Testing ##
 #############
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
 
 ## Add gtest based cpp test target and link libraries
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
+  #find_package(GMock REQUIRED)
+  include_directories(${GMOCK_INCLUDE_DIRS} ${GTEST_INCLUDE_DIRS})
   add_rostest_gtest(rumba-turtle-test launch/rumba_turtle_test.launch test/rumba_turtle_test.cpp
     src/${PROJECT_NAME}/geometry.cpp
     src/${PROJECT_NAME}/movement.cpp)
