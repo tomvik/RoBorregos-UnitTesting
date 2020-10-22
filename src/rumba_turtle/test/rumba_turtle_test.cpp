@@ -1,7 +1,7 @@
 // Bring in my package's API, which is what I'm testing
 // Bring in gtest
-#include <gmock/gmock.h>
 #include <gtest/gtest.h>
+#include <gmock/gmock.h>
 
 #include "geometry_msgs/Twist.h"
 #include "ros/ros.h"
